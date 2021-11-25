@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+logging:
+  level:
+    root: INFO
+    com.zrl.ssi.centralizedledger: INFO
+
+# actuator endpoints to change logging levels
+management:
+  endpoints:
+    loggers:
+      enabled: true
+    web:
+      exposure:
+        include: loggers
+
+server:
+  error:
+    include-stacktrace: ON_PARAM
+  tomcat:
+    accesslog:
+      enabled: true
+      prefix: stdout
+      directory: /dev
+      buffered: false
+      pattern: "{\"@timestamp\":\"%{YYYY-MM-dd'T'HH:mm:ss.SSSZZZZ}t\", \"remote-host\":\"%h\", \"user-agent\":\"%{User-agent}i\", \"remote-user\":\"%u\", \"request\":\"%r\", \"status\":\"%s\", \"size\":\"%b\", \"time\":\"%D\", \"level\":\"INFO\"}"
+      suffix:
+      file-date-format:
