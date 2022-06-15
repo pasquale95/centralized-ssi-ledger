@@ -6,6 +6,7 @@ import com.zrl.ssi.centralizedledger.repository.DIDRepository;
 import com.zrl.ssi.centralizedledger.utils.CustomUtils;
 import java.nio.charset.StandardCharsets;
 import java.time.ZonedDateTime;
+import java.util.LinkedHashMap;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,22 @@ public class DIDService {
     didRepository.save(didEntity);
 
     return didDoc;
+  }
+
+  /**
+   * For DEMO purposes only.
+   */
+  public Object register(Object didDoc) {
+    ZonedDateTime now = utils.currentDateTime();
+    LinkedHashMap<String, String> staticData = new LinkedHashMap<>();
+    String id = "9mkTyQuM4QG8a6UsttMiW5";
+    staticData.put("did", id);
+    staticData.put("verKey", "5nHa9AKGWcd6Lmi5YRiikAZFQKtxSeSrUKPVN62q7JLN");
+    String document = utils.writeJSON(staticData);
+    DIDEntity didEntity = new DIDEntity(id, document, now);
+    didRepository.save(didEntity);
+
+    return getDIDDoc(id);
   }
 
   public Object delete(String id) {

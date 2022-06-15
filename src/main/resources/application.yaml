@@ -6,6 +6,10 @@ spring:
     password: password
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
 logging:
   level:
@@ -30,6 +34,6 @@ server:
       prefix: stdout
       directory: /dev
       buffered: false
-      pattern: "{\"@timestamp\":\"%{YYYY-MM-dd'T'HH:mm:ss.SSSZZZZ}t\", \"remote-host\":\"%h\", \"user-agent\":\"%{User-agent}i\", \"remote-user\":\"%u\", \"request\":\"%r\", \"status\":\"%s\", \"size\":\"%b\", \"time\":\"%D\", \"level\":\"INFO\"}"
+      pattern: "{\"@timestamp\":\"%{YYYY-MM-dd'T'HH:mm:ss.SSSZZZZ}t\", \"bytes\":\"%{remote}p\", \"remote-host\":\"%a\", \"user-agent\":\"%{User-agent}i\", \"remote-user\":\"%u\", \"request\":\"%r\", \"status\":\"%s\", \"size\":\"%b\", \"time\":\"%D\", \"level\":\"INFO\"}"
       suffix:
       file-date-format:
