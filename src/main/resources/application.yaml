@@ -34,6 +34,6 @@ server:
       prefix: stdout
       directory: /dev
       buffered: false
-      pattern: "{\"@timestamp\":\"%{YYYY-MM-dd'T'HH:mm:ss.SSSZZZZ}t\", \"bytes\":\"%{remote}p\", \"remote-host\":\"%a\", \"user-agent\":\"%{User-agent}i\", \"remote-user\":\"%u\", \"request\":\"%r\", \"status\":\"%s\", \"size\":\"%b\", \"time\":\"%D\", \"level\":\"INFO\"}"
+      pattern: "{\"@timestamp\":\"%{YYYY-MM-dd'T'HH:mm:ss.SSSZZZZ}t\", \"remote-host\":\"%a\", \"port\":\"%{remote}p\", \"user-agent\":\"%{User-agent}i\", \"remote-user\":\"%u\", \"request\":\"%r\", \"status\":\"%s\", \"size\":\"%b\", \"time\":\"%D\", \"level\":\"INFO\"}"
       suffix:
       file-date-format:
