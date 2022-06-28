@@ -1,11 +1,15 @@
 package com.zrl.ssi.centralizedledger.controller;
 import com.zrl.ssi.centralizedledger.service.DIDService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "")
 public class GenesisController {
+
+  @Autowired
+  Environment environment;
 
   DIDService didService;
 
@@ -16,7 +20,7 @@ public class GenesisController {
 
   @GetMapping(path = "/genesis")
   public Object getDID() {
-    return "{}";
+    return "{\"client_ip\":\"http://host.docker.internal\",\"client_port\":8080}";
   }
 
   @PostMapping(path = "/register")
