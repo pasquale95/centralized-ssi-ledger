@@ -41,9 +41,6 @@ public class RevocationEntryService {
 
   public Object getRevocationEntryDelta(String id, Long timestamp) {
     ZonedDateTime timestampDate = utils.currentDateTime();
-    //if (timestampDate == null) {
-    //  timestampDate = ZonedDateTime.ofInstant(Instant.ofEpochSecond(Long.parseLong(timestamp)), ZoneOffset.UTC);
-    //}
     if (timestamp == null) {
       timestamp = timestampDate.toEpochSecond();
     }
@@ -63,7 +60,6 @@ public class RevocationEntryService {
     String document = utils.writeJSON(revocationEntryDoc);
     RevocationEntryEntity revocationEntryEntity = new RevocationEntryEntity(id, document, now.toEpochSecond());
     revocationEntryRepository.save(revocationEntryEntity);
-
     return revocationEntryDoc;
   }
 
@@ -71,7 +67,6 @@ public class RevocationEntryService {
     RevocationEntryId revId = new RevocationEntryId(id, Long.parseLong(timestamp));
     Object didDoc = this.getRevocationEntryDoc(revId);
     revocationEntryRepository.deleteById(revId);
-
     return didDoc;
   }
 }

@@ -29,7 +29,6 @@ public class SchemaService {
     if (schemaOptional.isEmpty()) {
       throw new NotFoundException("Schema " + id + " was not found");
     }
-
     return utils.readSingleJSON(schemaOptional.get().getDocument().getBytes(StandardCharsets.UTF_8));
   }
 
@@ -38,15 +37,12 @@ public class SchemaService {
     String document = utils.writeJSON(didDoc);
     SchemaEntity didEntity = new SchemaEntity(id, document, now);
     schemaRepository.save(didEntity);
-
     return didDoc;
   }
 
   public Object delete(String id) {
     Object didDoc = this.getSchema(id);
-
     schemaRepository.deleteById(id);
-
     return didDoc;
   }
 }

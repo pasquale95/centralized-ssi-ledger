@@ -29,7 +29,6 @@ public class CredentialDefinitionService {
     if (credentialDefinitionOptional.isEmpty()) {
       throw new NotFoundException("Credential definition " + id + " was not found");
     }
-
     return utils.readSingleJSON(credentialDefinitionOptional.get().getDocument().getBytes(StandardCharsets.UTF_8));
   }
 
@@ -38,15 +37,12 @@ public class CredentialDefinitionService {
     String document = utils.writeJSON(didDoc);
     CredentialDefinitionEntity didEntity = new CredentialDefinitionEntity(id, document, now);
     credentialDefinitionRepository.save(didEntity);
-
     return didDoc;
   }
 
   public Object delete(String id) {
     Object didDoc = this.getCredentialDefinition(id);
-
     credentialDefinitionRepository.deleteById(id);
-
     return didDoc;
   }
 }

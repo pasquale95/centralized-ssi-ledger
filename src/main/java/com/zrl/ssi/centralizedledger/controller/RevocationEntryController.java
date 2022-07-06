@@ -4,9 +4,6 @@ import com.zrl.ssi.centralizedledger.entity.RevocationEntryId;
 import com.zrl.ssi.centralizedledger.service.RevocationEntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.time.Instant;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
 import java.util.Map;
 
 @RestController

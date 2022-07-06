@@ -29,7 +29,6 @@ public class RevocationDefinitionService {
     if (revocationDefinitionOptional.isEmpty()) {
       throw new NotFoundException("RevocationDefinition " + id + " was not found");
     }
-
     return utils.readSingleJSON(revocationDefinitionOptional.get().getDocument().getBytes(StandardCharsets.UTF_8));
   }
 
@@ -39,15 +38,12 @@ public class RevocationDefinitionService {
     String document = utils.writeJSON(revocationDefinitionDoc);
     RevocationDefinitionEntity revocationDefinitionEntity = new RevocationDefinitionEntity(id, document, now);
     revocationDefinitionRepository.save(revocationDefinitionEntity);
-
     return revocationDefinitionDoc;
   }
 
   public Object delete(String id) {
     Object didDoc = this.getRevocationDefinitionDoc(id);
-
     revocationDefinitionRepository.deleteById(id);
-
     return didDoc;
   }
 }

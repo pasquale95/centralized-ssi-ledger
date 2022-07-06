@@ -21,6 +21,5 @@ public class RevocationEntryId implements Serializable {
   public RevocationEntryId(String id, Long timestamp) {
     this.id = id;
     this.timestamp = timestamp;
-    //this.timestamp = ZonedDateTime.ofInstant(Instant.ofEpochSecond(Long.parseLong(createdAt)), ZoneOffset.UTC);
   }
 }
