@@ -3,6 +3,7 @@ import com.zrl.ssi.centralizedledger.service.DIDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
+import java.util.LinkedHashMap;
 
 @RestController
 @RequestMapping(path = "")
@@ -24,7 +25,7 @@ public class GenesisController {
   }
 
   @PostMapping(path = "/register")
-  public Object registerDID(@RequestBody Object didDoc) {
+  public Object registerDID(@RequestBody LinkedHashMap<String, String> didDoc) {
     return didService.register(didDoc);
   }
 }

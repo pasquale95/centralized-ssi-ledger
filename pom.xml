@@ -41,6 +41,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+    <dependency>
+      <groupId>org.hyperledger</groupId>
+      <artifactId>indy</artifactId>
+      <version>1.16.0-dev-1655</version>
+    </dependency>
 	</dependencies>
 
 	<build>
@@ -68,6 +73,10 @@
 				<enabled>false</enabled>
 			</releases>
 		</repository>
+    <repository>
+      <id>sovrin</id>
+      <url>https://repo.sovrin.org/repository/maven-public</url>
+    </repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
