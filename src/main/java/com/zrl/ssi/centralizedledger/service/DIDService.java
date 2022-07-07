@@ -73,10 +73,12 @@ public class DIDService {
 
       // create DIDDoc and store on ledger
       ZonedDateTime now = utils.currentDateTime();
-      LinkedHashMap<String, String> staticData = new LinkedHashMap<>();
-      staticData.put("did", did);
-      staticData.put("verKey", verKey);
-      String document = utils.writeJSON(staticData);
+      LinkedHashMap<String, String> nym = new LinkedHashMap<>();
+      nym.put("did", did);
+      nym.put("verKey", verKey);
+      nym.put("alias", didDoc.get("alias"));
+      nym.put("role", didDoc.get("role"));
+      String document = utils.writeJSON(nym);
       DIDEntity didEntity = new DIDEntity(did, document, now);
       didRepository.save(didEntity);
       return getDIDDoc(did);
