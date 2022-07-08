@@ -1,7 +1,7 @@
 package com.zrl.ssi.centralizedledger.controller;
-import com.zrl.ssi.centralizedledger.service.DIDService;
+import com.zrl.ssi.centralizedledger.utils.CustomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import java.util.LinkedHashMap;
 
@@ -9,23 +9,21 @@ import java.util.LinkedHashMap;
 @RequestMapping(path = "")
 public class GenesisController {
 
-  @Autowired
-  Environment environment;
+  @Value("${server.port}")
+  private int serverPort;
 
-  DIDService didService;
+  CustomUtils utils;
 
   @Autowired
-  public GenesisController(DIDService didService) {
-    this.didService = didService;
+  public GenesisController(CustomUtils utils) {
+    this.utils = utils;
   }
 
   @GetMapping(path = "/genesis")
   public Object getDID() {
-    return "{\"client_ip\":\"http://host.docker.internal\",\"client_port\":8080}";
-  }
-
-  @PostMapping(path = "/register")
-  public Object registerDID(@RequestBody LinkedHashMap<String, String> didDoc) {
-    return didService.register(didDoc);
+    LinkedHashMap<String, String> genesisData = new LinkedHashMap<>();
+    genesisData.put("client_ip", "http://host.docker.internal");
+    genesisData.put("client_port", String.valueOf(this.serverPort));
+    return utils.writeJSON(genesisData);
   }
 }
