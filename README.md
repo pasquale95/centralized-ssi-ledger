@@ -14,7 +14,7 @@ This is an implementation of a basic SSI Centralized Ledger. It can be run with 
 
 All the project dependencies are automatically handled with `maven` except for the `libindy` native library, which you must compile on your machine in order to let this ledger run correctly. 
 
-If you have not compiled this library on your machine, please refer to the [**How to compile libindy**](#how-to-compile-libindy) section.
+If you have not compiled this library on your machine, please refer to the [**How to build libindy**](#how-to-build-libindy) section.
 
 ## How to build
 
