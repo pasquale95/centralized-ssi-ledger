@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CentralizedledgerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CentralizedledgerApplication.class, args);
+    SpringApplication.run(CentralizedledgerApplication.class, args);
 	}
 
 }
