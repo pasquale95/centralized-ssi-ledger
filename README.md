@@ -8,7 +8,9 @@ This is an implementation of a basic SSI Centralized Ledger. It can be run with 
 - [How to build libindy](#how-to-build-libindy)
   - [macOS troubleshooting](#macos-troubleshooting)
 - [How to run](#how-to-run)
-  - [macOS troubleshooting](#macos-troubleshooting)
+  - [Linux](#linux)
+  - [macOS](#macos)
+    - [macOS troubleshooting](#macos-troubleshooting)
 
 ## Dependencies
 
@@ -40,6 +42,18 @@ $ export OPENSSL_DIR=/usr/local/Cellar/openssl@1.1/1.1.1o
 
 ## How to run
 
+### Linux
+
+To start the centralized ledger, run the command:
+
+```bash
+$ LD_LIBRARY_PATH=<indy-sdk-folder>/libindy/target/debug java -jar centralizedledger-0.0.1-SNAPSHOT.jar
+```
+
+where `<indy-sdk-folder>` must be replaced with the path to the location where you cloned the `indy-sdk` repository.
+
+### macOS
+
 To start the centralized ledger, run the command:
 
 ```bash
@@ -48,7 +62,7 @@ $ DYLD_LIBRARY_PATH=<indy-sdk-folder>/libindy/target/debug java -jar centralized
 
 where `<indy-sdk-folder>` must be replaced with the path to the location where you cloned the `indy-sdk` repository.
 
-### macOS troubleshooting
+#### macOS troubleshooting
 
 On macOS you can have an issue passing the env variable `DYLD_LIBRARY_PATH` to the java binary if the *System Integrity Protection* (aka SIP) is enabled. This feature prevents users from changing a bunch of environment variables for all the binaries located in specific locations, one of which is `/usr/bin` where the `java` binary could be located.
 
