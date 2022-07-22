@@ -65,8 +65,6 @@ To start the centralized ledger, run the command:
 $ DYLD_LIBRARY_PATH=<indy-sdk-folder>/libindy/target/debug java -jar centralizedledger-0.0.1-SNAPSHOT.jar
 ```
 
-where `<indy-sdk-folder>` must be replaced with the path to the location where you cloned the `indy-sdk` repository.
-
 ## macOS troubleshooting
 
 Here a quick guide to solve some errors you could encounter when following the guide above.
