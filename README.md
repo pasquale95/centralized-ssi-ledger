@@ -43,8 +43,6 @@ To build this project, run from the root of this project the command:
 $ DYLD_LIBRARY_PATH=<indy-sdk-folder>/libindy/target/debug mvn clean install
 ```
 
-If the build fails, please look at the section [#macOS troubleshooting](#macos-troubleshooting) for the fix.
-
 ## How to run
 
 If the build was successful, you should have a .jar archive built under the `./target` folder.
@@ -68,8 +66,6 @@ $ DYLD_LIBRARY_PATH=<indy-sdk-folder>/libindy/target/debug java -jar centralized
 ```
 
 where `<indy-sdk-folder>` must be replaced with the path to the location where you cloned the `indy-sdk` repository.
-
-If the build fails, please look at the section [#macOS troubleshooting](#macos-troubleshooting) for the fix.
 
 ## macOS troubleshooting
 
