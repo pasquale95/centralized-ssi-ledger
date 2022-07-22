@@ -25,6 +25,8 @@ If you have not compiled this library on your machine, please refer to the [**Ho
 
 As first step, we need to compile the `libindy` library. To do it, you must clone the [indy-sdk](https://github.com/hyperledger/indy-sdk) repository on your machine. Once you have cloned the repository, install the sdk referring to the [How to build Indy SDK from source](https://github.com/hyperledger/indy-sdk/blob/master/README.md#how-to-build-indy-sdk-from-source) section.
 
+In the next sections we refer the location where you have cloned the indy-sdk repository as `<indy-sdk-folder>`.
+
 ## How to build
 
 ### Build on linux
@@ -54,8 +56,6 @@ To start the centralized ledger, run the command:
 ```bash
 $ LD_LIBRARY_PATH=<indy-sdk-folder>/libindy/target/debug java -jar centralizedledger-0.0.1-SNAPSHOT.jar
 ```
-
-where `<indy-sdk-folder>` must be replaced with the path to the location where you cloned the `indy-sdk` repository.
 
 ### Run on macOS
 
