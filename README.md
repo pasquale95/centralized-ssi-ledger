@@ -1,6 +1,6 @@
-# SSI Centralized Ledger
+# Centralized SSI Ledger
 
-This is an implementation of a basic SSI Centralized Ledger. It can be run with `aries-cloudagent-python` and it has been tested and used with the `indy` wallet.
+This is an implementation of a basic Centralized SSI Ledger. It can be run with `aries-cloudagent-python` and it has been tested and used with the `indy` wallet.
 
 ## Table of contents
 - [Dependencies](#dependencies)
